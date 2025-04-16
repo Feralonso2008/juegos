@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Juego Snake</title>
+    <style>
+        * {
+            touch-action: none;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 10px;
+            background-color: #2c3e50;
+            font-family: Arial, sans-serif;
+            box-sizing: border-box;
+        }
+
+        #game-container {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        canvas {
+            border: 3px solid #27ae60;
+            border-radius: 5px;
+            background-color: #34495e;
+            width: 100%;
+            height: auto;
+            aspect-ratio: 1;
+        }
+
+        #score {
+            color: white;
+            font-size: clamp(18px, 5vw, 24px);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        #instructions {
+            color: white;
+            background-color: rgba(39, 174, 96, 0.2);
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+            font-size: clamp(14px, 4vw, 16px);
+        }
+
+        .key {
+            background-color: #27ae60;
+            padding: 2px 8px;
+            border-radius: 3px;
+            margin: 0 3px;
+        }
+
+        #game-over, #pause-message {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: clamp(24px, 6vw, 32px);
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            z-index: 2;
+            width: 80%;
+        }
+
+        button {
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: clamp(14px, 4vw, 16px);
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #219a52;
+        }
+
+        #mobile-controls {
+            display: none;
+            width: 100%;
+            max-width: 400px;
+            margin-top: 20px;
+        }
+
+        .controls-row {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 5px 0;
+        }
+
+        .control-btn {
+            width: 60px;
+            height: 60px;
+            background-color: #27ae60;
+            border: none;
+            border-radius: 50%;
+            color: white;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.8;
+            touch-action: none;
+        }
+
+        .control-btn:active {
+            opacity: 1;
+            transform: scale(0.95);
+        }
+
+        @media (hover: none) and (pointer: coarse) {
+            #mobile-controls {
+                display: block;
+            }
+
+            .keyboard-controls {
+                display: none;
+            }
+
+            #instructions {
+                margin-bottom: 10px;
+            }
+
+            body {
+                justify-content: flex-start;
+                padding-top: 20px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .control-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="instructions">
+        <h3 style="margin-top: 0;">Cómo Jugar</h3>
+        <p class="keyboard-controls">
+            Controles:<br>
+            Flechas o WASD para mover la serpiente<br>
+            <span class="key">↑</span> <span class="key">↓</span> <span class="key">←</span> <span class="key">→</span> o 
+            <span class="key">W</span> <span class="key">S</span> <span class="key">A</span> <span class="key">D</span><br>
+            <span class="key">Espacio</span> para pausar
+        </p>
+        <p>Come las manzanas rojas para crecer y ganar puntos.<br>
+        ¡Evita chocar con las paredes y contigo mismo!</p>
+    </div>
+    <div id="score">Puntuación: 0 | Récord: 0</div>
+    <div id="game-container">
+        <canvas id="gameCanvas" width="400" height="400"></canvas>
+        <div id="game-over">
+            ¡Juego Terminado!<br>
+            Puntuación Final: <span id="final-score">0</span><br>
+            Mejor Puntuación: <span id="high-score">0</span><br>
+            <button onclick="resetGame()">Jugar de Nuevo</button>
+        </div>
+        <div id="pause-message">
+            PAUSA<br>
+            <small>Toca para continuar</small>
+        </div>
+    </div>
+    <div id="mobile-controls">
+        <div class="controls-row">
+            <button class="control-btn" id="upBtn">↑</button>
+        </div>
+        <div class="controls-row">
+            <button class="control-btn" id="leftBtn">←</button>
+            <button class="control-btn" id="pauseBtn">⏸</button>
+            <button class="control-btn" id="rightBtn">→</button>
+        </div>
+        <div class="controls-row">
+            <button class="control-btn" id="downBtn">↓</button>
+        </div>
+    </div>
+    <script src="snake.js"></script>
+</body>
+</html>
