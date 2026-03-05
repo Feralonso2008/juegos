@@ -85,9 +85,10 @@ a {
         padding: 0.3rem 0;
     }
     button {
-        height: 19vw;
-        width: 19vw;
-        font-size: 7vw;
+    height: 17vw;
+    width: 17vw;
+    font-size: 6vw;
+    }
     }
     .section2 {
         width: 100%;
@@ -118,3 +119,4 @@ audio {
     left: 50%;
     transform: translateX(-50%);
 }
+
