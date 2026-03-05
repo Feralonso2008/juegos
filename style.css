@@ -115,9 +115,13 @@ a {
         font-size: 0.7rem;
     }
     audio {
-        width: 85%;
-        bottom: 5px;
-    }
+    width: 90%;
+    position: fixed;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 999;
 }
+
 
 
