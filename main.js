@@ -99,6 +99,7 @@ tarjeta1.disabled = true;
     }
 }
 }
+}
 // al final del archivo, despues del ultimo }
 function reiniciar(){
   tarjetasDestapadas = 0;
