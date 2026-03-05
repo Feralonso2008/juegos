@@ -74,15 +74,20 @@ a {
 @media (max-width: 600px) {
     main {
         flex-direction: column;
-        justify-content: center;
-        padding: 1rem;
-        gap: 0.6rem;
+        justify-content: flex-start;
+        padding: 0.5rem;
+        padding-top: 0.8rem;
+        gap: 0.5rem;
         overflow: hidden;
     }
+    h1 {
+        font-size: 1.2rem;
+        padding: 0.3rem 0;
+    }
     button {
-        height: 68px;
-        width: 68px;
-        font-size: 26px;
+        height: 19vw;
+        width: 19vw;
+        font-size: 7vw;
     }
     .section2 {
         width: 100%;
@@ -90,15 +95,18 @@ a {
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
-        padding: 0.5rem;
-        gap: 0.5rem;
+        padding: 0.4rem;
+        gap: 0.4rem;
     }
     .estadisticas {
         width: 45%;
-        height: 60px;
-        font-size: 0.85rem;
+        height: 50px;
+        font-size: 0.75rem;
         justify-content: center;
         text-align: center;
+    }
+    footer {
+        font-size: 0.75rem;
     }
 }
 
