@@ -72,23 +72,28 @@ a {
 
 /* ── MÓVIL ── */
 @media (max-width: 600px) {
+    @media (max-width: 600px) {
     main {
         flex-direction: column;
         justify-content: flex-start;
         padding: 0.5rem;
         padding-top: 0.8rem;
-        gap: 0.5rem;
+        gap: 0.3rem;
         overflow: hidden;
+        height: 100vh;
+        max-height: 100vh;
     }
     h1 {
-        font-size: 1.2rem;
-        padding: 0.3rem 0;
+        font-size: 1rem;
+        padding: 0.2rem 0;
     }
     button {
-    height: 17vw;
-    width: 17vw;
-    font-size: 6vw;
+        height: 15vw;
+        width: 15vw;
+        font-size: 5vw;
     }
+    .section1 {
+        padding: 0 5px 5px 5px;
     }
     .section2 {
         width: 100%;
@@ -96,27 +101,23 @@ a {
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
-        padding: 0.4rem;
-        gap: 0.4rem;
+        padding: 0.3rem;
+        gap: 0.3rem;
     }
     .estadisticas {
         width: 45%;
-        height: 50px;
-        font-size: 0.75rem;
+        height: 45px;
+        font-size: 0.7rem;
         justify-content: center;
         text-align: center;
     }
     footer {
-        font-size: 0.75rem;
+        font-size: 0.7rem;
+    }
+    audio {
+        width: 85%;
+        bottom: 5px;
     }
 }
 
-/* ── AUDIO fijo en la parte inferior ── */
-audio {
-    width: 90%;
-    position: fixed;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-}
 
