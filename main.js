@@ -98,6 +98,7 @@ tarjeta1.disabled = true;
         },800);
     }
 }
+}
 // al final del archivo, despues del ultimo }
 function reiniciar(){
   tarjetasDestapadas = 0;
