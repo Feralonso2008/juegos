@@ -86,8 +86,34 @@ tarjeta1.disabled = true;
         mostrarTiempo.innerHTML = `Fantastico! 🎉 Solo demoraste ${timerInicial - timer} segundos`
         mostrarMovimientos.innerHTML = `Movimientos ${movimientos}✌️😎`
       }
+      function reiniciar(){
+  // Resetear variables
+  tarjetasDestapadas = 0;
+  tarjeta1 = null;
+  tarjeta2 = null;
+  primerResultado = null;
+  segundoResultado = null;
+  movimientos = 0;
+  aciertos = 0;
+  temporizador = false;
+  timer = 30;
+  clearInterval(tiempoRegresivoId);
 
-    }else{
+  // Resetear pantalla
+  mostrarMovimientos.innerHTML = 'Movimientos: 0';
+  mostrarAciertos.innerHTML = 'Aciertos: 0';
+  mostrarTiempo.innerHTML = 'Tiempo: 30 segundos';
+
+  // Revolver y ocultar tarjetas
+  numeros = [1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8];
+  numeros = numeros.sort(() => Math.random() - 0.5);
+  for(let i = 0; i <= 15; i++){
+    let tarjeta = document.getElementById(i);
+    tarjeta.innerHTML = '';
+    tarjeta.disabled = false;
+  }
+}
+  else{
         //mostrar momentaneament valores y volver a tapar
         setTimeout(()=>{
           tarjeta1.innerHTML = ' ';
@@ -98,5 +124,6 @@ tarjeta1.disabled = true;
         },800);
     }
 }
+
 
 }
